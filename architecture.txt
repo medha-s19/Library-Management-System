@@ -1,0 +1,35 @@
+File architecture for the project (concise)
+
+Root
+├─ build.xml                 # Ant build file
+├─ manifest.mf
+├─ library_management.sql    # DB schema + seed data
+├─ lib/                      # third-party jars and docs
+│  ├─ JTattoo-1.6.11.jar
+│  ├─ rs2xml.jar
+│  └─ MySQLDriver/
+│     └─ mysql-connector-java-5.1.23-bin.jar
+├─ src/
+│  ├─ DAO/
+│  │  └─ DatabaseHelper.java
+│  ├─ images/                 # app images used by UI
+│  │  ├─ book.png
+│  │  ├─ add.png
+│  │  └─ ...
+│  └─ Library_Management/     # main application package
+│     ├─ Home.java
+│     ├─ Login.java
+│     ├─ Signup.java
+│     ├─ NewBook.java
+│     ├─ Issue.java
+│     ├─ Return.java
+│     ├─ Statistics.java
+│     ├─ Student.java
+│     ├─ Forgot.java
+│     └─ *.form                # NetBeans GUI form metadata
+├─ build/                     # compiled classes and build artifacts
+│  └─ classes/
+│     ├─ Library_Management/*.class
+│     └─ DAO/DatabaseHelper.class
+├─ nbproject/                 # NetBeans project metadata
+└─ test/
