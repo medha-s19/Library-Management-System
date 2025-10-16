@@ -1,0 +1,91 @@
+@startuml
+' Project folder architecture for JAVA_CS2053/Project
+skinparam folderStyle rectangle
+
+folder "Project (root)" {
+  file build.xml
+  file manifest.mf
+  file library_management.sql
+
+  folder lib {
+    file "JTattoo-1.6.11.jar"
+    file "rs2xml.jar"
+    folder MySQLDriver {
+      file "mysql-connector-java-5.1.23-bin.jar"
+    }
+    folder jdatechooser_bin_doc_1_1_1 {
+      folder javadoc {
+        file "index.html"
+        file "... (docs)"
+      }
+      folder lib {
+        file "DateChooser.jar"
+      }
+    }
+  }
+
+  folder src {
+    folder DAO {
+      file "DatabaseHelper.java"
+    }
+    folder images {
+      file "book.png"
+      file "add.png"
+      file "return.jpg"
+      file "statistics.jpg"
+      file "..."
+    }
+    folder Library_Management {
+      file "Home.java"
+      file "Login.java"
+      file "Signup.java"
+      file "NewBook.java"
+      file "Issue.java"
+      file "Return.java"
+      file "Statistics.java"
+      file "Student.java"
+      file "Forgot.java"
+      file "Loading.java"
+      file "... (.form files alongside .java)"
+    }
+  }
+
+  folder build {
+    folder classes {
+      folder "Library_Management" {
+        file "*.class (compiled UI classes)"
+      }
+      folder DAO {
+        file "DatabaseHelper.class"
+      }
+      folder images {
+        file "book.png"
+        file "..."
+      }
+    }
+    file ".netbeans_update_resources"
+    file ".netbeans_automatic_build"
+  }
+
+  folder nbproject {
+    file project.xml
+    file project.properties
+    file build-impl.xml
+    folder private {
+      file private.properties
+      file private.xml
+    }
+  }
+
+  folder test {
+    file "(empty or test files)"
+  }
+}
+
+' Relationships / notes
+Home <- uses -> Login, NewBook, Issue, Return, Statistics, Student
+DAO/DatabaseHelper <- used by -> Login, NewBook, Issue, Return, Signup
+lib/*.jar <- on runtime classpath for UI and DB drivers
+build/classes <- compiled output used by java -cp
+
+@enduml
